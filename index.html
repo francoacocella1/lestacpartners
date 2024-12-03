@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LESTAC Partners</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="/assets/js/script.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+<header class="header">
+    <a href="#" class="logo">LESTAC Partners</a> <!-- Wrap the logo in an anchor tag -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="burger-menu" onclick="toggleMenu()">☰</div>
+</header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>
+                Expanding Horizons,<br>
+                Connecting Opportunities
+            </h1>
+            <div class="hero-description">
+                <p>
+                    At LESTAC Partners, we specialize in helping<br>
+                    businesses scale globally. From market<br>
+                    analysis to strategic partnerships, we guide<br>
+                    your company through every step of the way<br>
+                    toward international success.
+                </p>
+            </div>
+            <a href="#contact" class="hero-button">Get in Touch</a> <!-- Button -->
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2>Our Services</h2>
+        <div class="menu">
+            <!-- First Item -->
+            <div class="menu-item expanded">
+                <div class="menu-header" onclick="toggleMenu(this)">
+                    <h3>Market Diagnosis</h3>
+                    <span class="menu-toggle">−</span>
+                </div>
+                <div class="menu-content">
+                    <p>Gain a comprehensive understanding of your product’s market position and uncover international opportunities. We analyze demand, competitors, market trends, and barriers to identify where your business can thrive.</p>
+                </div>
+            </div>
+            <!-- Second Item -->
+            <div class="menu-item">
+                <div class="menu-header" onclick="toggleMenu(this)">
+                    <h3>Strategic Partnerships</h3>
+                    <span class="menu-toggle">+</span>
+                </div>
+                <div class="menu-content">
+                    <p>Build valuable connections with key international stakeholders. We facilitate meetings, prepare tailored presentations, and support negotiations to establish fruitful business relationships.</p>
+                </div>
+            </div>
+            <!-- Third Item -->
+            <div class="menu-item">
+                <div class="menu-header" onclick="toggleMenu(this)">
+                    <h3>Post-Partnership Support</h3>
+                    <span class="menu-toggle">+</span>
+                </div>
+                <div class="menu-content">
+                    <p>Ensure lasting success with our ongoing assistance. From contract implementation to continuous strategy adjustments, we help maintain and optimize your global engagements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about-us" id="about">
+        <div class="about-us-content">
+            <h2>About Us</h2>
+            <p>
+                LESTAC Partners is a consulting agency with a mission to empower businesses to thrive in international markets. 
+                We specialize in helping companies navigate the complexities of global expansion by offering tailored solutions 
+                that align with their unique goals. From in-depth market analysis to fostering strategic partnerships, we ensure 
+                that our clients have the tools and connections needed to excel in competitive environments.
+            </p>
+            <p>
+                With a team of experts dedicated to understanding the nuances of different industries and markets, we pride 
+                ourselves on delivering actionable insights and hands-on support. At LESTAC Partners, we don’t just help you 
+                expand your business — we build lasting relationships that foster sustainable growth and unlock new opportunities 
+                on a global scale.
+            </p>
+        </div>
+    </section>
+<script src="assets/js/script.js"></script>
+<section class="contact-us" id="contact">
+    <div class="contact-left">
+        <h2>Contact Us</h2>
+        <p>Interested in working together? Fill out some info and we will be in touch shortly. We can't wait to hear from you!</p>
+    </div>
+    <form class="contact-form">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" class="input-field" placeholder="First Name">
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name" class="input-field" placeholder="Last Name">
+            </div>
+        </div>
+        <div class="form-group full-width">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" class="input-field" placeholder="Email">
+        </div>
+        <div class="form-group full-width">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" class="input-field" placeholder="Message"></textarea>
+        </div>
+        <button type="submit" class="send-button">Send</button>
+    </form>
+</section>
+<footer class="footer">
+    <div class="footer-left">
+        <h1 class="footer-logo">LESTAC Partners</h1>
+    </div>
+    <div class="footer-right">
+        <a href="mailto:contact@lestacpartners.com" class="footer-email">contact@lestacpartners.com</a>
+        <div class="footer-socials">
+            <a href="#" class="social-link"><img src="assets/images/linkedin.png" alt="LinkedIn"></a>
+            <a href="#" class="social-link"><img src="assets/images/ig.png" alt="Instagram"></a>
+        </div>
+    </div>
+</footer>
+<script src="/assets/js/script.js" defer></script>
+</body>
+</html>

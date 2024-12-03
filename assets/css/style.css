@@ -1,0 +1,897 @@
+/* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.6;
+    letter-spacing: 4%; /* Apply letter spacing across the website */
+}
+
+/* Margins for the entire website */
+.container, .hero-content {
+    margin: 0 160px;
+}
+
+/* Header */
+/* Base Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: transparent; /* Default state: no background */
+    color: white;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.header:not(.hidden).scrolled {
+    background: rgba(0, 0, 0, 0.6); /* Background appears only after scrolling */
+    backdrop-filter: blur(8px); /* Optional: Blur effect */
+    color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Optional: Add shadow */
+}
+
+/* Initial Animation */
+/*.header {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 2s ease-out forwards;
+}
+
+/* Hidden Header Class */
+.header.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: none; /* Remove translateY here */
+    }
+}
+
+.logo {
+    font-size: 35px;
+    font-weight: 300;
+    letter-spacing: 4%;
+    white-space: nowrap;
+    color: white; /* Ensures the logo remains white */
+    text-decoration: none; /* Removes underline from the link */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Space between links */
+    margin: 0; /* Remove any default margins */
+    padding: 0; /* Remove any default padding */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 4%;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #f4a261; /* Optional hover effect */
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    background: url('../images/hero-background.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 160px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-content h1 {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUp 2s ease-out 0.3s forwards;
+}
+
+.hero-content p {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUp 2s ease-out 0.6s forwards;
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 50px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: 4%; /* Apply letter spacing */
+}
+
+.hero-description {
+    max-width: 500px;
+    margin: 20px auto 0;
+}
+
+.hero-description p {
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 300;
+    text-align: center;
+    letter-spacing: 4%; /* Apply letter spacing */
+    padding-top: 30px;
+}
+
+/* Services Section */
+.services {
+    position: relative; /* Ensure positioning context for the pseudo-element */
+    background-color: #f4a261;
+    background-size: cover; /* Ensure it covers the entire section */
+    background-repeat: no-repeat; /* Prevent the pattern from repeating */
+    color: white;
+    padding: 100px 160px;
+    display: flex;
+    justify-content: space-between; /* Title and menu horizontally aligned */
+    align-items: flex-start;
+    gap: 80px; /* Space between the title and the menu */
+    z-index: 1; /* Ensure content stays above the pseudo-element */
+    overflow: hidden; /* Contain the pseudo-element */
+}
+
+.services::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Black background with 40% opacity */
+    
+    z-index: -1; /* Place the pseudo-element behind the content */
+}
+
+.services h2,
+.menu {
+    position: relative;
+    z-index: 1;
+}
+
+.services h2 {
+    font-size: 60px;
+    font-weight: 300;
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: 4%;
+    color: white;
+}
+
+/* Menu Styling */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 60%; /* Align menu to the right side */
+}
+
+.menu-item {
+    border-bottom: 1px solid #ffffff; /* Add line separator */
+    padding: 10px 0; /* Adjust spacing between items */
+}
+
+.menu-item:last-child {
+    border-bottom: none; /* Remove bottom line for the last item */
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu-header h3 {
+    font-size: 30px;
+    font-weight: 300;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.menu-toggle {
+    font-size: 60px; /* Updated size for + and - signs */
+    font-weight: 400; /* Slightly bolder for better visibility */
+    color: white;
+    transition: transform 0.3s ease, font-size 0.3s ease; /* Smooth animation */
+}
+
+.menu-item.expanded .menu-toggle {
+    transform: rotate(180deg); /* Rotate for animation effect */
+}
+
+.menu-content {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #ffffff;
+    margin-top: 10px;
+    overflow: hidden; /* Ensures smooth height transition */
+    max-height: 0; /* Collapsed by default */
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+}
+
+/* Expanded State */
+.menu-item.expanded .menu-content {
+    max-height: 500px; /* Allow enough space for the content */
+    padding-top: 10px; /* Add padding for smooth transition */
+}
+
+/* Add top and bottom lines to the menu */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 60%; /* Align menu to the right side */
+    position: relative; /* To position the pseudo-elements */
+}
+
+.menu::before, .menu::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #ffffff; /* Match the color of other lines */
+}
+
+.menu::before {
+    top: 0; /* Line above the first item */
+}
+
+.menu::after {
+    bottom: 0; /* Line below the last item */
+}
+
+/* About Us Section */
+.about-us {
+    background-image: url('../images/aboutus-background.jpg'); /* Replace with your actual image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh; /* Set the height of the block */
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+}
+
+.about-us-content {
+    background-color: rgba(255, 255, 255, 0.9); /* White background with transparency */
+    width: 705px; /* Set exact width */
+    height: 640px; /* Set exact height */
+    padding: 30px 40px 50px; /* Adjust top padding to be less, and bottom for balance */
+    border-radius: 10px; /* Add rounded corners */
+    text-align: center; /* Center align text */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically within the box */
+}
+
+.about-us-content h2 {
+    font-size: 60px; /* Set font size for heading */
+    font-weight: 300;
+    margin-bottom: 15px; /* Reduce spacing below the title */
+    letter-spacing: 4%;
+    color: #565656; /* Set text color */
+}
+
+.about-us-content p {
+    font-size: 20px; /* Set font size for paragraph */
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 20px; /* Ensure consistent spacing */
+    color: #565656; /* Set text color */
+}
+
+.about-us-content {
+    opacity: 0;
+    transform: scale(0.95);
+    animation: zoomIn 2s ease-out forwards;
+}
+
+@keyframes zoomIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Contact Us Section */
+.contact-us {
+    position: relative; /* To position the overlay */
+    padding: 100px 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    color: white;
+    min-height: 600px;
+    overflow: hidden; /* Prevent blur overflow */
+    background-color: #f4a261;
+}
+
+.contact-us::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent black for the blur */
+    backdrop-filter: blur(10px); /* Apply the blur effect */
+    z-index: 0; /* Ensure it stays below the content */
+}
+
+.contact-left,
+.contact-form {
+    position: relative; /* Position content above the blur */
+    z-index: 1;
+}
+
+.contact-left {
+    width: 40%; /* Adjust width for the text block */
+    text-align: left;
+}
+
+.contact-left h2 {
+    font-size: 60px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    letter-spacing: 4%;
+    color: white; /* Ensure proper contrast over blur */
+}
+
+.contact-left p {
+    font-size: 18px;
+    line-height: 1.6;
+    font-weight: 300;
+    color: #ffffff; /* Softer gray for text */
+}
+
+/* Form Styling */
+.contact-form {
+    width: 60%; /* Adjust width for the form block */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Form Row Styling */
+.form-row {
+    display: flex;
+    gap: 40px; /* Space between first name and last name */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1; /* Make first name and last name fields equal width */
+}
+
+/* Input Styling */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.3); /* Add transparency */
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    outline: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Placeholder Styling */
+.input-field::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Adjust the color for better readability */
+    font-size: 16px; /* Optional: Match the font size */
+    font-weight: 300; /* Optional: Match the font weight */
+}
+
+textarea.input-field::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Same for textarea */
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.input-field:focus {
+    background-color: rgba(255, 255, 255, 0.4); /* Slightly increase transparency on focus */
+    border-color: white;
+}
+
+/* Adjust the height of the message box */
+textarea.input-field {
+    height: 120px; /* Make the message box taller */
+}
+
+/* Button Styling */
+.send-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #333333;
+    border: 1px solid #d0d0d0;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-start; /* Ensure the button does not stretch across the width */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.send-button:hover {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #565656;
+}
+
+.input-field:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #565656;
+    padding: 20px 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.footer-left {
+    text-align: left;
+}
+
+.footer-logo {
+    font-size: 35px; /* Match the header font size */
+    font-weight: 300;
+    letter-spacing: 4%;
+    margin: 0;
+}
+
+.footer-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.footer-email {
+    font-size: 40px; /* Larger email font */
+    font-weight: 300;
+    color: white;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.footer-email:hover {
+    color: #f4a261; /* Optional hover effect */
+}
+
+.footer-socials {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link img {
+    width: 30px; /* Icon size */
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.social-link img:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.hero-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: 300;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white; /* White border for elegance */
+    border-radius: 30px; /* Rounded button */
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+
+    opacity: 0; /* Start hidden */
+    transform: translateY(30px); /* Slide in from below */
+    animation: slideUpButton 2s ease-out 0.9s forwards; /* Delayed animation */
+}
+
+.hero-button:hover {
+    background-color: white; /* Invert colors on hover */
+    color: #565656; /* Subtle gray text */
+    transform: scale(1.05); /* Slightly enlarge for emphasis */
+}
+
+@keyframes slideUpButton {
+    to {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Reset to original position */
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .container, .hero-content {
+        margin: 0 80px; /* Reduce margins for medium screens */
+    }
+
+    .header {
+        padding: 20px 80px; /* Adjust header padding */
+    }
+
+    .logo {
+        font-size: 28px; /* Reduce logo size */
+    }
+
+    .hero {
+        padding: 0 20px; /* Add padding to ensure text is not too narrow */
+    }
+
+    .hero h1 {
+        font-size: 28px; /* Reduce heading font size */
+    }
+
+    .hero-content {
+        max-width: 100%; /* Allow full width for text */
+    }
+
+    .hero-description p {
+        font-size: 16px; /* Adjust font size */
+    }
+
+    .services {
+        padding: 100px 80px; /* Adjust section padding */
+    }
+
+    .contact-us {
+        padding: 100px 80px; /* Adjust section padding */
+    }
+
+    .footer {
+        padding: 20px 80px; /* Adjust footer padding */
+    }
+}
+
+@media (max-width: 992px) {
+    .container, .hero-content {
+        margin: 0 40px; /* Reduce margins further for smaller screens */
+    }
+
+    .header {
+        padding: 20px 40px; /* Adjust header padding */
+    }
+
+    .services {
+        flex-direction: column; /* Stack elements vertically */
+        gap: 40px; /* Reduce gaps */
+    }
+
+    .services h2 {
+        text-align: center; /* Center the title */
+    }
+
+    .menu {
+        width: 100%; /* Expand menu to full width */
+    }
+
+    .contact-us {
+        flex-direction: column; /* Stack form and text vertically */
+        gap: 40px;
+    }
+
+    .contact-left, .contact-form {
+        width: 100%; /* Full width for elements */
+    }
+
+    .footer {
+        flex-direction: column; /* Stack footer elements */
+        text-align: center;
+        gap: 20px; /* Add spacing between elements */
+    }
+
+    .footer-right {
+        align-items: center;
+    }
+
+    .footer-socials {
+        justify-content: center; /* Center align socials */
+    }
+}
+
+@media (max-width: 768px) {
+    .container, .hero-content {
+        margin: 0 20px; /* Minimal margins for mobile */
+    }
+
+    .header {
+        padding: 20px; /* Adjust header padding for mobile */
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links by default */
+        flex-direction: column; /* Stack links vertically */
+        background-color: rgba(0, 0, 0, 0.8); /* Add background for dropdown */
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show nav links on toggle */
+    }
+
+    .burger-menu {
+        display: block; /* Show burger menu */
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .hero h1 {
+        font-size: 32px; /* Smaller heading size */
+    }
+
+    .hero-description p {
+        font-size: 16px; /* Smaller description text */
+    }
+
+    .services {
+        padding: 50px 20px; /* Smaller padding */
+    }
+
+    .about-us {
+        height: auto; /* Allow auto height for content */
+        padding: 50px 20px;
+    }
+
+    .about-us-content {
+        width: 100%; /* Full width */
+        height: auto; /* Auto height */
+    }
+}
+
+    /* Contact Form Adjustments for Small Screens */
+@media (max-width: 768px) {
+    .contact-us {
+        flex-direction: column; /* Stack content vertically */
+        padding: 50px 20px; /* Add padding for smaller screens */
+        box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+    }
+
+    .contact-left, .contact-form {
+        width: 100%; /* Make both elements take full width */
+    }
+
+    .contact-form {
+        padding: 0 20px; /* Add padding to ensure spacing inside the form */
+        box-sizing: border-box; /* Ensure the padding fits within the width */
+    }
+
+    .form-row {
+        flex-direction: column; /* Stack form fields vertically */
+        gap: 20px; /* Adjust gap between form fields */
+    }
+
+    textarea.input-field {
+        height: 100px; /* Adjust height for smaller screens */
+    }
+
+    .send-button {
+        width: 100%; /* Make the button take the full width of the form */
+        text-align: center; /* Center the text inside the button */
+    }
+
+    .footer {
+        padding: 20px;
+    }
+
+    .footer-logo {
+        font-size: 24px; /* Adjust logo size */
+    }
+
+    .footer-email {
+        font-size: 20px; /* Adjust email font size */
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 24px; /* Even smaller heading size */
+    }
+
+    .hero-description p {
+        font-size: 14px; /* Smaller description text */
+    }
+
+    .hero-button {
+        font-size: 14px;
+        padding: 8px 16px; /* Smaller button */
+    }
+
+    .services h2 {
+        font-size: 36px; /* Reduce title size */
+    }
+
+    .menu-header h3 {
+        font-size: 20px; /* Smaller menu headers */
+    }
+
+    .menu-toggle {
+        font-size: 24px; /* Adjust toggle size */
+    }
+
+    .footer-email {
+        font-size: 18px; /* Smaller footer email size */
+    }
+
+    .social-link img {
+        width: 24px; /* Smaller icon size */
+        height: 24px;
+    }
+}
+
+/* Hamburger Menu Styling */
+.burger-menu {
+    display: none; /* Hidden by default */
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 200; /* Ensure it stays above the rest */
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links.active {
+    display: flex; /* Show nav on toggle */
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Below the header */
+    right: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    gap: 15px;
+}
+
+@media (max-width: 768px) {
+    .burger-menu {
+        display: block; /* Show burger menu on smaller screens */
+    }
+
+    .nav-links {
+        display: none; /* Hide navigation by default on small screens */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show nav links on toggle */
+    }
+}
+
+/* Footer Adjustments */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column; /* Stack footer elements */
+        text-align: center; /* Center-align text */
+        padding: 20px;
+        gap: 20px; /* Add space between elements */
+    }
+
+    .footer-left, .footer-right {
+        align-items: center; /* Center-align content */
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-left h2 {
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+
+    .contact-left p {
+        font-size: 20px;
+    }
+    .contact-form {
+        padding: 0 5px; /* Add internal padding for the form container */
+        width: 100%; /* Ensure the form fits within the screen */
+        box-sizing: border-box; /* Include padding in the width calculation */
+    }
+
+    .form-row {
+        flex-direction: column; /* Stack input fields vertically */
+        gap: 20px; /* Ensure enough space between rows */
+    }
+
+    .form-group {
+        flex: none; /* Remove equal width constraint */
+    }
+
+    .input-field {
+        width: 100%; /* Ensure inputs span full width */
+        font-size: 14px; /* Adjust input text size for mobile */
+        padding: 8px; /* Add padding inside inputs */
+        box-sizing: border-box; /* Prevent padding overflow */
+    }
+
+    textarea.input-field {
+        height: 80px; /* Adjust textarea height for smaller screens */
+        padding: 8px; /* Consistent padding with other inputs */
+        box-sizing: border-box;
+    }
+
+    .send-button {
+        padding: 10px; /* Ensure consistent button padding */
+        width: calc(100% - 40px); /* Ensure it aligns with form padding */
+        margin: 0 auto; /* Center-align the button */
+        text-align: center; /* Center text inside the button */
+        font-size: 14px; /* Match text size with inputs */
+    }
+}
